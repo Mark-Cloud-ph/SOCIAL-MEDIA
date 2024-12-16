@@ -14,9 +14,9 @@ dotenv.config();
 // Initialize express app
 const app = express();
 
-// CORS configuration to allow requests from frontend (localhost:3000)
+// CORS configuration to allow requests from specific frontend origins
 const corsOptions = {
-  origin: 'http://localhost:5173',  // Adjust as per your frontend URL
+  origin: ['http://localhost:5173', 'http://localhost:5174'],  // List multiple allowed origins
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 };
@@ -26,11 +26,11 @@ app.use(cors(corsOptions));  // Use CORS with the defined options
 app.use(express.json());  // Replacing body-parser with express.json()
 
 // Routes
-app.use('/api/users', userRoutes);
-app.use('/api/posts', postRoutes);
-app.use('/api/comments', commentRoutes);
-app.use('/api/likes', likeRoutes);
-app.use('/api/follows', followRoutes);
+app.use('/api/users', userRoutes);      // User-related routes
+app.use('/api/posts', postRoutes);      // Post-related routes
+app.use('/api/comments', commentRoutes); // Comment-related routes
+app.use('/api/likes', likeRoutes);     // Like-related routes
+app.use('/api/follows', followRoutes); // Follow-related routes
 
 // Default route
 app.get('/', (req, res) => {

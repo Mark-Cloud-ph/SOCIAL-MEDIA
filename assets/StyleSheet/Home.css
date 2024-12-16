@@ -1,0 +1,72 @@
+.home-container {
+  padding: 20px;
+}
+
+
+.post {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 15px; 
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+/* Add styling for the profile picture */
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+}
+
+.username {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.post-header {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.post-content {
+  margin-bottom: 10px;
+}
+
+.post-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.like-button, .comment-button, .expand-button, .add-comment-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.like-button:hover, .comment-button:hover, .expand-button:hover, .add-comment-button:hover {
+  background-color: #0056b3;
+}
+
+.comments-section {
+  background-color: #f0f0f0;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 15px;
+}
+
+.comment {
+  margin-bottom: 10px;
+}
+
+.comment span {
+  font-weight: bold;
+}

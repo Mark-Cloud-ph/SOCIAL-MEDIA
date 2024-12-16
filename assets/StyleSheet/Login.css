@@ -1,0 +1,106 @@
+body, .background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-image: url('../63.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.form-box {
+  width: 100%;
+  max-width: 400px; /* Restricts max width for smaller screens */
+  padding: 40px;
+  background-color: #a78297;
+  border: 5px solid #131313;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 28px;
+  color: #1e1e1e;
+  margin-bottom: 1rem;
+}
+
+p {
+  color: #000;
+  margin-bottom: 1.5rem;
+}
+
+.input-group {
+  margin-bottom: 1rem;
+  width: 90%;
+  padding: 0.5px;
+  text-align: left;
+}
+
+.input-field {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #555;
+  box-shadow: 0 0 5px rgba(85, 85, 85, 0.5);
+}
+
+.submit-button, .signup-button {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 6px;
+  background-color: #333;
+  color: #f5f5f5;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover, .signup-button:hover {
+  background-color: #555;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .form-box {
+    padding: 30px;
+    width: 90%; /* Ensures it fits smaller screens */
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .input-field, .submit-button, .signup-button {
+    font-size: 14px;
+  }
+}

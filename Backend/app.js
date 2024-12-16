@@ -48,14 +48,8 @@ app.use((err, req, res, next) => {
   res.status(500).json({ message: "Something went wrong!" });  // Send error response
 });
 
-// Database connection (optional to confirm database connection works)
-db.connect(err => {
-  if (err) {
-    console.error('Database connection error: ' + err.stack);
-    return;
-  }
-  console.log('Connected to the database.');
-});
+// Database connection is automatically established when the app starts
+// No need to call db.connect()
 
 // Start the server
 const PORT = process.env.PORT || 5000;  // Use PORT from .env or default to 5000

@@ -60,7 +60,7 @@ export const getOtherUserProfile = (query) => {
 };
 
 export const getUserPosts = (username) => {
-  return api.get(`/users/posts/${username}`)  // Ensure the username is being passed correctly in the URL
+  return api.get(`/users/${username}`)  // Ensure the username is being passed correctly in the URL
     .then(response => response)  // If successful, return the response data
     .catch(error => {
       console.error('Error fetching user posts:', error);

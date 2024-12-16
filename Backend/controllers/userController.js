@@ -4,18 +4,27 @@ const db = require('../config/db');
 const multer = require('multer');
 const path = require('path');
 
+
+const fs = require('fs');
+
+// Ensure the upload directory exists
+const dir = path.join(__dirname, '../uploads/Images');
+if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
+}
+
 // Multer storage configuration
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, 'uploads/'); // Folder to store uploads
+        cb(null, dir); // Folder to store uploads
     },
     filename: (req, file, cb) => {
-        const uniqueSuffix = Date.now() + path.extname(file.originalname); // Add timestamp
+        const uniqueSuffix = Date.now() + path.extname(file.originalname); // Add timestamp to filename
         cb(null, file.fieldname + '-' + uniqueSuffix);
     },
 });
 
-// Filter for file type (only PNG and JPEG allowed)
+// File filter for image types (only PNG and JPEG allowed)
 const fileFilter = (req, file, cb) => {
     if (file.mimetype === 'image/png' || file.mimetype === 'image/jpeg') {
         cb(null, true);
@@ -104,13 +113,13 @@ const getOtherUserProfile = (req, res) => {
 };
     
 
-  const updateProfile = (req, res) => {
+const updateProfile = (req, res) => {
     const { username, bio } = req.body;
-    const userId = req.user;
+    const userId = req.user;  // From JWT authentication middleware
 
-    let profile_pic_url = req.body.profile_pic_url;
+    let profile_pic_url = req.body.profile_pic_url;  // Default profile_pic_url
     if (req.file) {
-        profile_pic_url = `/uploads/${req.file.filename}`; // Path to the uploaded image
+        profile_pic_url = `/uploads/Images/${req.file.filename}`; // Path to the uploaded image
     }
 
     const query = 'UPDATE User SET username = ?, bio = ?, profile_pic_url = ? WHERE user_id = ?';

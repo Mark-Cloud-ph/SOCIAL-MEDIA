@@ -7,6 +7,7 @@ const commentRoutes = require('./routes/commentRoutes');
 const likeRoutes = require('./routes/likeRoutes');
 const followRoutes = require('./routes/followRoutes');
 const db = require('./config/db');  // Assuming db.js is in config folder
+const path = require('path'); // Add this line to require path module
 
 // Load environment variables from .env file
 dotenv.config();
@@ -24,6 +25,9 @@ app.use(cors(corsOptions));  // Use CORS with the defined options
 
 // Middleware
 app.use(express.json());  // Replacing body-parser with express.json()
+
+// Serve static files (images, etc.) from the "uploads" directory
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Routes
 app.use('/api/users', userRoutes);      // User-related routes

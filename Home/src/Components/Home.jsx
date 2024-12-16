@@ -13,23 +13,22 @@ const Home = () => {
   const [postComments, setPostComments] = useState({});
   const [newPostContent, setNewPostContent] = useState('');
   const [error, setError] = useState(null); // Added error state to handle errors
-
   useEffect(() => {
-    // Fetch user profile on component mount
     const fetchUserProfile = async () => {
       try {
         const response = await getUserProfile();
-        setUsername(response.data.username); // Set username in Zustand store
-        setProfilePicUrl(response.data.profile_pic_url || defaultProfilePic); // Set profile picture URL in Zustand store
+        // After fetching the user profile, update the Zustand store
+        setUsername(response.data.username);  // Set username in the Zustand store
+        setProfilePicUrl(response.data.profile_pic_url || defaultProfilePic);  // Set profile picture URL
       } catch (error) {
         console.error("Error fetching user profile", error);
-        setError("Error fetching profile"); // Set error message
+        setError("Error fetching profile");  // Set error message in case of failure
       }
     };
-
+  
     fetchUserProfile();
-  }, [setUsername, setProfilePicUrl]); // Only run once when component mounts
-
+  }, [setUsername, setProfilePicUrl]);  // Only run once when component mounts
+  
   useEffect(() => {
     const fetchPosts = async () => {
       try {

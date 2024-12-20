@@ -22,4 +22,10 @@ npm start
 
 This will launch the project. Ensure your SQLite database is correctly configured before starting the application.
 
+MEMBERS :
+MARK IAN H. FROST
+Yrogirog Rhy
+Mark Calderon Gabieta 
+
+
 

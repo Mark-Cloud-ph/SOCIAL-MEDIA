@@ -12,11 +12,11 @@ npm install nodemon --save-dev
 
 Ensure SQLite Tools Are Installed:
 
-Install an SQLite viewer to view and manage the database.
+Install an SQLite viewer to view and manage the database anjd SQlite .
 Add the SQLite extension for your code editor ( SQLite extension for Visual Studio Code) to enable database integration and functionality.
 
 Start the Project:
-Once the dependencies are installed, go to the main project folder (the folder containing both Backend and ChatterBox) and run:
+Once the dependencies are installed, go to the main project folder (the folder containing both Backend and Home) and run:
 
 npm start
 

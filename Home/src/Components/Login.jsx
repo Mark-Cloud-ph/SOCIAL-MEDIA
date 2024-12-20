@@ -44,14 +44,14 @@ function Login() {
             className="input-field"
           />
         </div>
-        <div className="input-group">
+        <div className="input-group2">
           <input 
             type="password" 
             placeholder="Password" 
             required 
             value={password} 
             onChange={(e) => setPassword(e.target.value)} 
-            className="input-field"
+            className="input-field2"
           />
         </div>
         <button type="submit" className="submit-button">Login</button>

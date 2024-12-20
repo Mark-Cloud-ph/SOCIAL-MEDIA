@@ -60,3 +60,10 @@ body, .background {
   .login-button:hover, .signup-button:hover {
     background-color: #555;
   }
+
+  .input-field2 {
+    width: 450px;
+  }
+  .input-group2 {
+    width: 200px;
+  }

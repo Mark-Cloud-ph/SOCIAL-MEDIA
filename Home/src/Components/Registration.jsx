@@ -9,6 +9,7 @@ function Registration() {
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
   const [error, setError] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const navigate = useNavigate();
 
@@ -23,14 +24,22 @@ function Registration() {
     }
 
     try {
-      const response = await axios.post('http://localhost:5000/api/users/register', { username, email, password });
+      const response = await axios.post('http://localhost:5000/api/users/register', {
+        username,
+        email,
+        password,
+      });
+      window.alert("Account has been successfully registered!");
       if (response.data.success) {
-        alert("Registration successful! Redirecting to login...");
+        console.log("Registration successful!");
+        setSuccessMessage("Account has been successfully registered!");
+        setError('');
         localStorage.removeItem('jwtToken'); // Clear any leftover token to prevent ProtectedRoute interference
-        navigate('/');
+        setTimeout(() => navigate('/'), 2000); // Redirect to login page after 2 seconds
       }
     } catch (err) {
       setError(err.response?.data?.message || "Registration failed");
+      setSuccessMessage('');
     } finally {
       setIsSubmitting(false);
     }
@@ -45,6 +54,7 @@ function Registration() {
         </div>
         <form onSubmit={handleRegister}>
           {error && <p className="error-message">{error}</p>}
+          {successMessage && <p className="success-message">{successMessage}</p>}
           <input
             type="email"
             placeholder="Enter your email"

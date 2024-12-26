@@ -7,7 +7,7 @@ Navigate to each folder (Home, Backend, and Main) in the project directory and r
 
 npm install
 
-install This in Main
+install This in the Main and in the backend folder
 npm install nodemon --save-dev
 
 Ensure SQLite Tools Are Installed:
